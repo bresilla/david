@@ -1,6 +1,7 @@
 baseURL = "http://example.org/"
 languageCode = "en-us"
 title = "DC architetture"
+publishDir = "docs"
 
 
 [params.style]
