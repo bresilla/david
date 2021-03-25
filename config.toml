@@ -1,0 +1,28 @@
+baseURL = "http://example.org/"
+languageCode = "en-us"
+title = "DC architetture"
+
+
+[params.style]
+    accent = "#84878a"
+    theme = "dark"
+    bg = "#cbcbcb"
+    fg = "#84878a"
+[[params.social]]
+    name = "Mail"
+    unicode = ""
+    icon = "fab fa-github"
+    weight = 1
+    url = "https://github.com/bresilla/"
+[[params.social]]
+    name = "Phone"
+    unicode = ""
+    icon = "fab fa-linkedin"
+    weight = 3
+    url = "https://www.linkedin.com/in/bresilla/"
+[[params.social]]
+    name = "Address"
+    unicode = ""
+    icon = "fab fa-twitter"
+    weight = 4
+    url = "https://twitter.com/trimbresilla/"

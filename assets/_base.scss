@@ -1,0 +1,38 @@
+*,
+*:after,
+*:before {
+    box-sizing: inherit;
+}
+
+
+html {
+    box-sizing: border-box;
+    font-size: 62.5%;
+    background-color: var(--bg-color);
+}
+
+body {
+    color: var(--fg-color);
+    background-color: var(--bg-color);
+    font-family: $font;
+    font-size: 1.6em;
+    font-weight: 900;
+    line-height: 1.8em;
+    @media only screen and (max-width : 768px) {
+        font-size: 1.6em;
+        line-height: 1.6em;
+    }
+}
+a {
+    font-weight:300;
+    color:$fg-color;
+    text-decoration:none;
+    position:relative
+}
+ul {
+  list-style: none;
+}
+
+li:before {
+    content: none;
+}

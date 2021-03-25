@@ -1,0 +1,62 @@
+@font-face {
+  font-family: 'Aovel';
+  src: url("../fonts/Aovel Neo R.ttf");
+  font-style: normal;
+  font-weight: 200; }
+
+:root {
+  --bg-color: #ffffff;
+  --fg-color: #84878a;
+  --ac-color: #84878a; }
+
+*,
+*:after,
+*:before {
+  box-sizing: inherit; }
+
+html {
+  box-sizing: border-box;
+  font-size: 62.5%;
+  background-color: var(--bg-color); }
+
+body {
+  color: var(--fg-color);
+  background-color: var(--bg-color);
+  font-family: "Aovel", Georgia, serif;
+  font-size: 1.6em;
+  font-weight: 900;
+  line-height: 1.8em; }
+  @media only screen and (max-width: 768px) {
+    body {
+      font-size: 1.6em;
+      line-height: 1.6em; } }
+a {
+  font-weight: 300;
+  color: var(--fg-color);
+  text-decoration: none;
+  position: relative; }
+
+ul {
+  list-style: none; }
+
+li:before {
+  content: none; }
+
+.socials {
+  font-size: 1.5rem;
+  display: table;
+  margin: 0 auto;
+  width: 40%;
+  list-style: none; }
+  @media only screen and (max-width: 768px) {
+    .socials {
+      font-size: 1.0rem;
+      width: 60%; } }
+  .socials li {
+    display: table-cell; }
+    .socials li a {
+      color: var(--bg-color);
+      display: block;
+      text-align: center; }
+
+/*# sourceMappingURL=coder.css.map */

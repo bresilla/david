@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="{{ .Site.LanguageCode }}">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Title -->
+    <title>{{ if .Title }}{{ .Title }} - {{ end }}{{ .Site.Title }}</title>
+    <!-- Meta -->
+    {{- if eq .Kind "page" }}
+    <meta name="description" content="{{ .Summary }}">
+    <meta name="author" content="{{ .Params.Author | default .Site.Author.name }}">
+    {{- else }}
+    <meta name="description" content="{{ .Site.Params.description }}">
+    <meta name="author" content="{{ .Site.Author.name }}">
+    {{- end }}
+    <!-- Styles -->
+    {{ if .Site.IsServer }}
+        {{ $cssOpts := (dict "targetPath" "coder.css" "enableSourceMap" true ) }}
+        {{ $styles := resources.Get "coder.scss" | resources.ExecuteAsTemplate "style.coder.css" . | toCSS $cssOpts }}
+        <link rel="stylesheet" href="{{ $styles.RelPermalink }}" media="screen">
+    {{ else }}
+        {{ $cssOpts := (dict "targetPath" "coder.css" ) }}
+        {{ $styles := resources.Get "coder.scss" | resources.ExecuteAsTemplate "style.coder.css" . | toCSS $cssOpts | minify }}
+        <link rel="stylesheet" href="{{ $styles.RelPermalink }}" integrity="{{ $styles.Data.Integrity }}" crossorigin="anonymous" media="screen" />
+    {{ end }}
+
+    <!-- Favicons -->
+    <link rel="icon" href="{{ "favicon.ico" | absURL }}">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous" />
+    <!-- Generator -->
+    {{- hugo.Generator }}
+    <!-- RSS -->
+    {{ range .AlternativeOutputFormats -}}
+    {{ printf `<link rel="%s" type="%s" href="%s" title="%s" />` .Rel .MediaType.Type .Permalink $.Site.Title | safeHTML }}
+    {{ end -}}
+    <!-- Misc -->
+    {{- if eq (getenv "HUGO_ENV") "production" | or (eq .Site.Params.env "production") }}
+    {{- template "_internal/google_analytics_async.html" . }}
+    {{- template "_internal/opengraph.html" . }}
+    {{- end }}
+    <!-- Script -->
+    <script>
+    </script>
+  </head>
+  <body class="{{ if eq .Kind `page` }}single{{ else }}list{{ if .IsHome }} home{{ end }}{{ end }}">
+  <header class="header">
+    <nav class="nav">
+      <h2 class="logo"><a href="{{ "" | absURL }}">{{ .Site.Title }}</a></h2>
+    </nav>
+  </header>
+    <main class="main" style="height:100%;">

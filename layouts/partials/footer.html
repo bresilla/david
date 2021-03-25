@@ -1,0 +1,23 @@
+</main>
+<footer class="footer" style="position: absolute; bottom: 0; width: 100%; background-color: var(--fg-color)">
+  {{ with .Site.Params.social }}
+  <div class="socials" >
+      {{ range sort .}}
+          {{ if .icon }}
+          <li>
+              <a class="textglitch" data-text="{{ .unicode }}" href="{{ .url }}" aria-label="{{ .name }}" {{ if .rel }}rel="{{ .rel }}"{{ end }}>
+              <i class="{{ .icon }}" aria-hidden="true"></i>
+              <!-- {{ .unicode }} -->
+              </a>
+          </li>
+          {{ else }}
+          <li>
+              <a href="{{ .url }}" aria-label="{{ .name }}" {{ if .rel }}rel="{{ .rel }}"{{ end }}>{{ .name }}</a>
+          </li>
+          {{ end }}
+      {{ end }}
+  </div>
+  {{ end }}
+</footer>
+</body>
+</html>

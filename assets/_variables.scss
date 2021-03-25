@@ -1,0 +1,18 @@
+@font-face {
+    font-family: 'Aovel';
+    src: url("../fonts/Aovel Neo R.ttf");
+    font-style: normal;
+    font-weight: 200;
+}
+
+$font: 'Aovel', Georgia, serif;
+
+:root{
+    --bg-color: #ffffff;
+    --fg-color: #84878a;
+    --ac-color: #84878a;
+}
+
+$bg-color: var(--bg-color);
+$fg-color: var(--fg-color);
+$ac-color: var(--ac-color);
